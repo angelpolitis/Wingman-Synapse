@@ -1,0 +1,35 @@
+{
+    "name": "wingman/synapse",
+    "type": "library",
+    "description": "A dependency injection container for the Wingman framework with scoped lifetimes, contextual bindings, provider orchestration, and optional PSR-11 bridge compatibility.",
+    "keywords": ["php", "dependency-injection", "container", "psr-11", "wingman"],
+    "license": "MPL-2.0",
+    "authors": [
+        {
+            "name": "Angel Politis",
+            "email": "info@angelpolitis.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "wingman/argus": ">=1.0"
+    },
+    "suggest": {
+        "psr/container": "Enables native PSR-11 interface extension in bridge stubs.",
+        "wingman/argus": "Required to run the test suite."
+    },
+    "autoload": {
+        "psr-4": {
+            "Wingman\\Synapse\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wingman\\Synapse\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
