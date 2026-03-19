@@ -18,6 +18,8 @@
     use Wingman\Synapse\Attributes\Context as ContextAttribute;
     use Wingman\Synapse\Attributes\Inject as InjectAttribute;
     use Wingman\Synapse\Attributes\Service as ServiceAttribute;
+    use Wingman\Synapse\Bridge\Cortex\Attributes\Configurable;
+    use Wingman\Synapse\Bridge\Cortex\Configuration;
     use Wingman\Synapse\Bridge\Corvus\Emitter;
     use Wingman\Synapse\Bridge\PSR\ContainerException;
     use Wingman\Synapse\Bridge\PSR\ContainerInterface as ContainerBridgeInterface;
@@ -129,12 +131,14 @@
          * Controls whether property injection is attempted only on properties marked with #[Inject].
          * @var bool
          */
+        #[Configurable("synapse.container.inject.attributesOnly", "Whether property injection should require the #[Inject] attribute.")]
         protected bool $injectableOnlyWithAttributes = false;
 
         /**
          * Controls whether protected properties are eligible for automatic injection.
          * @var bool
          */
+        #[Configurable("synapse.container.inject.protected", "Whether protected properties are eligible for automatic injection.")]
         protected bool $injectProtected = false;
 
         /**
@@ -216,6 +220,7 @@
          * When true, implicit autowiring of unregistered classes is disabled.
          * @var bool
          */
+        #[Configurable("synapse.container.strict", "Whether to enforce strict mode and reject implicit autowiring.")]
         protected bool $strict = false;
 
         /**
@@ -226,9 +231,12 @@
 
         /**
          * Creates a new container.
+         * @param array|Configuration $config Optional flat dot-notation config map, or a Cortex Configuration instance.
+         * Supported keys: synapse.container.strict, synapse.container.inject.protected, synapse.container.inject.attributesOnly.
          */
-        public function __construct () {
+        public function __construct (array|Configuration $config = []) {
             $this->emitter = Emitter::create();
+            Configuration::hydrate($this, $config);
         }
 
         /**
