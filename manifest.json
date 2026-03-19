@@ -21,6 +21,11 @@
             "package": "Wingman/Argus",
             "version": ">=1.0",
             "optional": true
+        },
+        {
+            "package": "Wingman/Cortex",
+            "version": ">=1.0",
+            "optional": true
         }
     ],
     "autoload": {

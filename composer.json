@@ -18,7 +18,8 @@
     },
     "suggest": {
         "psr/container": "Enables native PSR-11 interface extension in bridge stubs.",
-        "wingman/argus": "Required to run the test suite."
+        "wingman/argus": "Required to run the test suite.",
+        "wingman/cortex": "Enables constructor-based configuration hydration via the Cortex bridge."
     },
     "autoload": {
         "psr-4": {
