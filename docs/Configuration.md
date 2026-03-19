@@ -13,6 +13,32 @@ $container->loadConfig(string $jsonFile) : static
 
 Parses the JSON file and maps each section to the appropriate container API calls.
 
+---
+
+## Constructor Hydration (Cortex Bridge)
+
+Synapse can also hydrate selected container options directly in the constructor.
+This works with a flat dot-notation array by default, and with a Cortex
+`Configuration` instance when `wingman/cortex` is installed.
+
+```php
+use Wingman\Synapse\Container;
+
+$container = new Container([
+    "synapse.container.strict" => true,
+    "synapse.container.inject.protected" => true,
+    "synapse.container.inject.attributesOnly" => false,
+]);
+```
+
+Supported constructor keys:
+
+| Key | Type | Default | Description |
+| --- | --- | --- | --- |
+| `synapse.container.strict` | `bool` | `false` | Enables strict mode (rejects implicit autowiring of unbound abstracts) |
+| `synapse.container.inject.protected` | `bool` | `false` | Enables protected property injection |
+| `synapse.container.inject.attributesOnly` | `bool` | `false` | Requires `#[Inject]` for property injection |
+
 ### Full Format Reference
 
 ```json

@@ -13,6 +13,7 @@ Optional integrations:
 
 | Package | Purpose |
 | --- | --- |
+| `wingman/cortex` | Enables constructor-based configuration hydration via the Cortex bridge |
 | `psr/container` | Promotes the PSR bridge stubs to native `Psr\Container` contracts |
 | `wingman/corvus` | Enables live signal emission for container lifecycle events |
 
@@ -64,6 +65,7 @@ $container->exitScope();
 | **Object hydrator** | Map plain arrays to typed DTOs — see [ObjectHydrator](docs/ObjectHydrator.md) |
 | **Graph analysis** | Detect cycles, query dependencies/dependants — see [GraphAnalysis](docs/GraphAnalysis.md) |
 | **JSON configuration** | Drive the container entirely from a JSON file — see [Configuration](docs/Configuration.md) |
+| **Cortex configuration bridge** | Hydrate container options from Cortex or flat config arrays — see [Configuration](docs/Configuration.md#constructor-hydration-cortex-bridge) |
 | **Cache warmup** | Export a serialised state snapshot for zero-overhead boots — see [Configuration](docs/Configuration.md) |
 | **Container forking** | Spawn isolated child containers that inherit parent config — see [Container](docs/Container.md) |
 | **PSR-11 bridge** | Optional native `Psr\Container` interface compliance — see [PSR-11](docs/PSR11.md) |
